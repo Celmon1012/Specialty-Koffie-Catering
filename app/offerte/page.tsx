@@ -239,7 +239,7 @@ export default function OffertePage() {
           
           {/* Right side: Form */}
           <div className="flex-1 lg:max-w-lg w-full">
-            <div className="bg-black text-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[500px] md:min-h-[600px] shadow-2xl">
+            <div className="bg-black text-white p-4 md:p-6 flex flex-col">
               {isSubmitted ? (
                 // Success message
                 <div className="flex flex-col items-center justify-center flex-1 py-8 text-center">
@@ -274,15 +274,16 @@ export default function OffertePage() {
               ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 justify-between">
                 {/* Step Indicator Dots */}
-                <div className="flex justify-center mb-4 gap-2">
+                <div className="flex justify-center mb-8 gap-1">
                   {[0, 1, 2, 3].map((idx) => (
                     <button
                       key={idx}
                       type="button"
                       aria-label={`Step ${idx + 1}`}
                       onClick={() => handleDotClick(idx)}
-                      className={`rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black ${
-                        activeDot === idx ? "w-3 h-3 bg-white opacity-100" : "w-2.5 h-2.5 bg-white opacity-40 hover:opacity-60"
+                      style={{ width: '12px', height: '12px', padding: 0, borderWidth: '0px' }}
+                      className={`rounded-full inline-block transition-all duration-200 focus:outline-none bg-white ${
+                        activeDot === idx ? "opacity-100" : "opacity-40"
                       }`}
                       disabled={activeDot === idx}
                     />
@@ -296,7 +297,7 @@ export default function OffertePage() {
                     <div className="flex flex-col gap-8 flex-1">
                       <div className="flex flex-col gap-6">
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Duur van Evenement</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Duur van Evenement</label>
                           <input
                             type="number"
                             inputMode="numeric"
@@ -310,13 +311,13 @@ export default function OffertePage() {
                               if (!/^[0-9]$/.test(e.key)) e.preventDefault();
                             }}
                             onChange={(e) => { const v = e.target.value.replace(/[^0-9]/g, ''); setStep0(s => ({...s, duration: v})); setErrorsMap(m=>({...m, duration: ""})); setStepErrors(s=>({...s, 0: false})); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Bijv. 3 (uur)"
                           />
-                          {errorsMap.duration && <p className="text-red-400 text-sm mt-2">{errorsMap.duration}</p>}
+                          {errorsMap.duration && <p className="text-red-500 text-sm mt-1">{errorsMap.duration}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Aantal Gasten</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Aantal Gasten</label>
                           <input
                             type="number"
                             inputMode="numeric"
@@ -330,14 +331,14 @@ export default function OffertePage() {
                               if (!/^[0-9]$/.test(e.key)) e.preventDefault();
                             }}
                             onChange={(e) => { const v = e.target.value.replace(/[^0-9]/g, ''); setStep0(s => ({...s, guests: v})); setErrorsMap(m=>({...m, guests: ""})); setStepErrors(s=>({...s, 0: false})); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Bijv. 50"
                           />
-                          {errorsMap.guests && <p className="text-red-400 text-sm mt-2">{errorsMap.guests}</p>}
+                          {errorsMap.guests && <p className="text-red-500 text-sm mt-1">{errorsMap.guests}</p>}
                         </div>
                       </div>
-                      <div className="pt-4">
-                        <button type="button" className="w-full bg-white text-black font-semibold py-4 text-base md:text-lg hover:bg-gray-100 transition-colors cursor-pointer rounded-lg" onClick={goToNext}>Volgende</button>
+                      <div className="pt-8 pb-2 px-2">
+                        <button type="button" className="w-full bg-white text-black font-medium py-4 text-lg cursor-pointer" onClick={goToNext}>Volgende</button>
                       </div>
                     </div>
                   ) : activeDot === 1 ? (
@@ -345,34 +346,35 @@ export default function OffertePage() {
                     <div className="flex flex-col gap-8 flex-1">
                       <div className="flex flex-col gap-6">
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Extra&apos;s</label>
-                          <div className="relative">
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Extra&apos;s</label>
+                          <div className="relative group">
                             <button
                               type="button"
                               onClick={() => setExtrasOpen((o) => !o)}
-                              className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white appearance-none text-left flex items-center justify-between transition-colors"
+                              className="w-full bg-black border-b border-gray-400 text-white py-2 md:py-1 px-0 focus:outline-none focus:border-white appearance-none pr-10 text-lg md:text-base font-normal text-left flex items-center justify-between"
                             >
                               <div className="flex flex-wrap gap-2">
                                 {step1.extras.length === 0 ? (
-                                  <span className="text-gray-400 text-base md:text-lg">Kies extra&apos;s</span>
+                                  <span className="text-white text-lg font-normal">Kies extra&apos;s</span>
                                 ) : (
                                   step1.extras.map((ex) => {
                                     const opt = extrasOptions.find((o) => o.value === ex);
                                     return (
-                                      <span key={ex} className="bg-white text-black px-3 py-1.5 rounded-full text-sm font-medium">{opt ? opt.label : ex}</span>
+                                      <span key={ex} className="bg-white text-black px-3 py-1 rounded-full text-sm">{opt ? opt.label : ex}</span>
                                     );
                                   })
                                 )}
                               </div>
-                              <span className={`ml-2 transition-transform duration-200 ${extrasOpen ? 'rotate-180' : ''}`}>
-                                <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M6 8l4 4 4-4" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                              </span>
                             </button>
 
+                            <span className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-white transition-transform duration-200 ${extrasOpen ? 'rotate-180' : ''} group-focus-within:rotate-180`}>
+                              <svg className="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 8l4 4 4-4" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </span>
+
                             {extrasOpen && (
-                              <div className="absolute z-20 mt-2 w-full bg-gray-900 border border-gray-700 rounded-lg max-h-48 overflow-auto shadow-xl">
+                              <div className="absolute z-20 mt-1 w-full bg-black border border-gray-700 max-h-44 overflow-auto shadow-lg">
                                 {extrasOptions.map((opt) => {
                                   const selected = step1.extras.includes(opt.value);
                                   return (
@@ -402,12 +404,12 @@ export default function OffertePage() {
                           </div>
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Gelegenheid</label>
-                          <div className="relative">
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Gelegenheid</label>
+                          <div className="relative group">
                             <select 
                               value={step1.occasion} 
                               onChange={(e) => { setStep1(s => ({...s, occasion: e.target.value})); setErrorsMap(m=> ({...m, occasionSelect: ""})); setStepErrors(s=>({...s, 1: false})); setShowButtonError(false); }} 
-                              className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 pr-8 focus:outline-none focus:border-white appearance-none text-base md:text-lg transition-colors"
+                              className="w-full bg-black border-b border-gray-400 text-white py-2 md:py-1 px-0 focus:outline-none focus:border-white appearance-none pr-10 text-lg md:text-base font-normal"
                             >
                               <option value="" className="bg-gray-900">Kies gelegenheid</option>
                               <option value="Bruiloft" className="bg-gray-900">Bruiloft</option>
@@ -425,10 +427,10 @@ export default function OffertePage() {
                           </div>
                         </div>
                       </div>
-                      {stepErrors[1] && <p className="text-red-400 text-sm">Vul alle velden in om door te gaan.</p>}
-                      <div className="pt-4 flex gap-4">
-                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-base md:text-lg font-semibold transition-colors hover:bg-white hover:text-black cursor-pointer rounded-lg" onClick={() => setActiveDot(0)}>Vorige</button>
-                        <button type="button" className={`flex-1 font-semibold py-4 text-base md:text-lg transition-colors cursor-pointer rounded-lg ${showButtonError && activeDot === 1 ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-white text-black hover:bg-gray-100'}`} onClick={goToNext}>{showButtonError && activeDot === 1 ? '!' : 'Volgende'}</button>
+                      {stepErrors[1] && <p className="text-red-500 text-sm mt-2">Vul alle velden in om door te gaan.</p>}
+                      <div className="pt-8 pb-2 px-2 flex gap-4">
+                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-lg font-bold transition-colors hover:bg-white hover:text-black cursor-pointer" onClick={() => setActiveDot(0)}>Vorige</button>
+                        <button type="button" className={`flex-1 font-medium py-4 text-lg transition-colors cursor-pointer ${showButtonError && activeDot === 1 ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-white text-black hover:bg-gray-100'}`} onClick={goToNext}>{showButtonError && activeDot === 1 ? '!' : 'Volgende'}</button>
                       </div>
                     </div>
                   ) : activeDot === 2 ? (
@@ -436,29 +438,29 @@ export default function OffertePage() {
                     <div className="flex flex-col gap-8 flex-1">
                       <div className="flex flex-col gap-6">
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Adres</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Adres</label>
                           <input
                             value={step2.address}
                             onChange={(e) => { setStep2(s => ({...s, address: e.target.value})); setErrorsMap(m=>({...m, address: ""})); setStepErrors(s=>({...s, 2: false})); setShowButtonError(false); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Bijv. Keizersgracht 123, Amsterdam"
                           />
-                          {errorsMap.address && <p className="text-red-400 text-sm mt-2">{errorsMap.address}</p>}
+                          {errorsMap.address && <p className="text-red-500 text-sm mt-1">{errorsMap.address}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Datum</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Datum</label>
                           <input
                             type="date"
                             min="2025-01-01"
                             max="2026-12-31"
                             value={step2.date}
                             onChange={(e) => { setStep2(s => ({...s, date: e.target.value})); setErrorsMap(m=>({...m, date: ""})); setStepErrors(s=>({...s, 2: false})); setShowButtonError(false); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors [color-scheme:dark]"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                           />
-                          {errorsMap.date && <p className="text-red-400 text-sm mt-2">{errorsMap.date}</p>}
+                          {errorsMap.date && <p className="text-red-500 text-sm mt-1">{errorsMap.date}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Tijd</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Tijd</label>
                           <div className="flex gap-4">
                             <div className="flex-1">
                               <input
@@ -484,7 +486,7 @@ export default function OffertePage() {
                                   }
                                   setStep2(s => ({...s, startTime: v}));
                                 }}
-                                className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                                className="flex-1 min-w-0 bg-black border-b border-gray-400 text-white py-2 px-2 focus:outline-none focus:border-white appearance-none text-lg font-normal"
                               />
                             </div>
                             <div className="flex items-center text-gray-400">-</div>
@@ -512,17 +514,17 @@ export default function OffertePage() {
                                   }
                                   setStep2(s => ({...s, endTime: v}));
                                 }}
-                                className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                                className="flex-1 min-w-0 bg-black border-b border-gray-400 text-white py-2 px-2 focus:outline-none focus:border-white appearance-none text-lg font-normal"
                               />
                             </div>
                           </div>
-                          {errorsMap.time && <p className="text-red-400 text-sm mt-2">{errorsMap.time}</p>}
+                          {errorsMap.time && <p className="text-red-500 text-sm mt-1">{errorsMap.time}</p>}
                         </div>
                       </div>
-                      {stepErrors[2] && <p className="text-red-400 text-sm">Vul alle velden in om door te gaan.</p>}
-                      <div className="pt-4 flex gap-4">
-                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-base md:text-lg font-semibold transition-colors hover:bg-white hover:text-black cursor-pointer rounded-lg" onClick={() => setActiveDot(1)}>Vorige</button>
-                        <button type="button" className={`flex-1 font-semibold py-4 text-base md:text-lg transition-colors cursor-pointer rounded-lg ${showButtonError && activeDot === 2 ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-white text-black hover:bg-gray-100'}`} onClick={goToNext}>{showButtonError && activeDot === 2 ? '!' : 'Volgende'}</button>
+                      {stepErrors[2] && <p className="text-red-500 text-sm mt-2">Vul alle velden in om door te gaan.</p>}
+                      <div className="pt-8 pb-2 px-2 flex gap-4">
+                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-lg font-bold transition-colors hover:bg-white hover:text-black cursor-pointer" onClick={() => setActiveDot(1)}>Vorige</button>
+                        <button type="button" className={`flex-1 font-medium py-4 text-lg transition-colors cursor-pointer ${showButtonError && activeDot === 2 ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-white text-black hover:bg-gray-100'}`} onClick={goToNext}>{showButtonError && activeDot === 2 ? '!' : 'Volgende'}</button>
                       </div>
                     </div>
                   ) : (
@@ -530,28 +532,28 @@ export default function OffertePage() {
                     <div className="flex flex-col gap-8 flex-1">
                       <div className="flex flex-col gap-6">
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Naam</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Naam</label>
                           <input
                             value={step3.name}
                             onChange={(e) => { setStep3(s => ({...s, name: e.target.value})); setErrorsMap(m=>({...m, name: ""})); setStepErrors(s=>({...s, 3: false})); setSubmitAttemptedStep(null); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Bijv. Jan Jansen"
                           />
-                          {(errorsMap.name && submitAttemptedStep === 3) && <p className="text-red-400 text-sm mt-2">{errorsMap.name}</p>}
+                          {(errorsMap.name && submitAttemptedStep === 3) && <p className="text-red-500 text-sm mt-1">{errorsMap.name}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">E-mail</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">E-mail</label>
                           <input
                             type="email"
                             value={step3.email}
                             onChange={(e) => { setStep3(s => ({...s, email: e.target.value})); setErrorsMap(m=>({...m, email: ""})); setStepErrors(s=>({...s, 3: false})); setSubmitAttemptedStep(null); }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="bijv. naam@voorbeeld.nl"
                           />
-                          {(errorsMap.email && submitAttemptedStep === 3) && <p className="text-red-400 text-sm mt-2">{errorsMap.email}</p>}
+                          {(errorsMap.email && submitAttemptedStep === 3) && <p className="text-red-500 text-sm mt-1">{errorsMap.email}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Telefoon</label>
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Telefoon</label>
                           <input
                             type="tel"
                             inputMode="tel"
@@ -577,25 +579,24 @@ export default function OffertePage() {
                               setStepErrors((s) => ({ ...s, 3: false }));
                               setSubmitAttemptedStep(null);
                             }}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Bijv. +31612345678"
                           />
-                          {(errorsMap.phone && submitAttemptedStep === 3) && <p className="text-red-400 text-sm mt-2">{errorsMap.phone}</p>}
+                          {(errorsMap.phone && submitAttemptedStep === 3) && <p className="text-red-500 text-sm mt-1">{errorsMap.phone}</p>}
                         </div>
                         <div>
-                          <label className="block text-gray-300 mb-3 text-base md:text-lg font-medium">Opmerking</label>
-                          <textarea
+                          <label className="block text-gray-300 mb-2 text-lg font-normal">Opmerking</label>
+                          <input
                             value={step3.comment}
                             onChange={(e) => setStep3(s => ({...s, comment: e.target.value}))}
-                            rows={4}
-                            className="w-full bg-transparent border-b-2 border-gray-600 text-white py-3 px-0 focus:outline-none focus:border-white placeholder-gray-500 text-base md:text-lg transition-colors resize-none"
+                            className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white placeholder-gray-400 text-lg font-normal"
                             placeholder="Eventuele extra info, bijv. voorkeuren"
                           />
                         </div>
                       </div>
-                      <div className="pt-4 flex gap-4">
-                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-base md:text-lg font-semibold transition-colors hover:bg-white hover:text-black cursor-pointer rounded-lg" onClick={() => setActiveDot(2)}>Vorige</button>
-                        <button type="submit" disabled={isSubmitting} className="flex-1 bg-white text-black font-semibold py-4 text-base md:text-lg hover:bg-gray-100 transition-colors cursor-pointer rounded-lg disabled:opacity-50 disabled:cursor-not-allowed">{isSubmitting ? 'Verzenden...' : 'Verzenden'}</button>
+                      <div className="pt-8 pb-2 px-2 flex gap-4">
+                        <button type="button" className="flex-1 border-2 border-white text-white py-4 text-lg font-bold transition-colors hover:bg-white hover:text-black cursor-pointer" onClick={() => setActiveDot(2)}>Vorige</button>
+                        <button type="submit" disabled={isSubmitting} className="flex-1 bg-white text-black font-medium py-4 text-lg hover:bg-gray-100 transition-colors cursor-pointer disabled:opacity-50">{isSubmitting ? 'Verzenden...' : 'Verzenden'}</button>
                       </div>
                     </div>
                   )}

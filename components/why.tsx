@@ -157,66 +157,6 @@ export function Why({ title, description, bullets, imageSrc, imageAlt, overrideN
                                                     </Link>
                                                 </div>
 
-                                                <style>{`@media (min-width: 768px) and (max-width: 1024px) {
-                                                    /* Target iPad Air / Mini / Pro widths (portrait and smaller landscape)
-                                                       Reduce CTA and image widths for better layout on iPads */
-                                                    #why-cta { width: 640px !important; max-width: 640px !important; }
-                                                    /* Target Next.js Image wrapper and actual img element */
-                                                    #why-img, #why-img img, .hero-image img, .hero-image span img, .hero-image .max-w-none img { width: 640px !important; max-width: 640px !important; display: block !important; }
-                                                    /* Nudge image slightly left to align with CTA, then move 0.5rem right to fine-tune */
-                                                    #why-img, #why-img img, .hero-image img, .hero-image span img { transform: translateX(calc(-10px + 0.5rem)) !important; }
-                                                    .hero-image { display: flex; justify-content: center; }
-                                                    .hero-image > div { display: flex; justify-content: center; }
-
-                                                    /* Shift heading, text, lists and CTA slightly to the right on iPads */
-                                                    .why-text {
-                                                        transform: translateX(2rem) !important;
-                                                    }
-                                                    /* Ensure CTA wrapper respects the shift */
-                                                    .why-text .mt-8, .why-text .mt-[112px] { transform: translateX(2rem) !important; }
-                                                    /* Shift CTA slightly to the right/left for fine placement on iPad; moved left by 0.4rem */
-                                                    #why-cta { transform: translateX(0.1rem) !important; }
-
-                                                    /* Ensure list text stays on a single line on iPad/tablet */
-                                                    /* Move the entire list slightly right for iPad sizes */
-                                                    .why-text ol { transform: translateX(0.7rem) !important; }
-                                                    .why-text ol li > div { align-items: center; gap: 1rem; }
-                                                    .why-text ol li > div span {
-                                                        white-space: nowrap;
-                                                        overflow: hidden;
-                                                        text-overflow: ellipsis;
-                                                        display: inline-block;
-                                                        max-width: 560px; /* keep room for icon */
-                                                    }
-
-                                                    /* Make separator extend to the image width and align with the image nudge */
-                                                    .why-text ol li hr {
-                                                        width: 640px !important;
-                                                        max-width: 640px !important;
-                                                        margin-left: 0;
-                                                        transform: translateX(calc(-10px + 0.7rem)) !important;
-                                                        margin-top: 12px;
-                                                    }
-
-                                                    /* Move entire Why section up by 35rem on iPad Air / Mini / Pro */
-                                                    .why-section {
-                                                        margin-top: -35rem !important; /* move section up further */
-                                                    }
-
-                                                    /* iPad mini only (portrait width 768px): shift the whole section left by 2rem */
-                                                    @media (width: 768px) {
-                                                        .why-section { transform: translateX(-2rem) !important; }
-                                                        /* iPad mini only: nudge the image 1.8rem to the right (0.8rem + additional 1rem) */
-                                                        #why-img, #why-img img, .hero-image img { transform: translateX(1.8rem) !important; }
-                                                        /* iPad mini only: move CTA right by 0.7rem */
-                                                        #why-cta { transform: translateX(0.7rem) !important; }
-                                                    }
-
-                                                    /* iPad Air only (portrait width 820px): nudge the image 1rem to the right */
-                                                    @media (width: 820px) {
-                                                        #why-img, #why-img img, .hero-image img { transform: translateX(1rem) !important; }
-                                                    }
-                                                }`}</style>
                     </div>
 
                                     <div className="relative w-full md:w-1/2 md:flex-shrink-0 mt-8 md:mt-0 flex justify-center md:justify-end hero-image">

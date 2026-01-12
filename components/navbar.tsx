@@ -98,7 +98,7 @@ export default function Navbar() {
           href="/"
           id="nav-logo"
           aria-label="Ga naar de homepagina"
-          className="inline-block transform origin-left scale-150 md:-ml-32 lg:-ml-16"
+          className="inline-block transform origin-left scale-150 md:scale-100 md:ml-0 lg:scale-150 lg:-ml-16"
           onClick={handleNavClick}
         >
           <Image
@@ -106,7 +106,7 @@ export default function Navbar() {
             alt="MENNO'S Koffiebar Logo"
             width={160}
             height={48}
-            className="w-20 h-auto md:w-32 md:h-auto object-contain"
+            className="w-20 h-auto md:w-28 lg:w-32 object-contain"
             priority
           />
         </Link>

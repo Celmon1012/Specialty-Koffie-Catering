@@ -185,43 +185,6 @@ voor bedrijven, events en bruiloften. Door heel Nederland en vooral in
                                                     </Link>
                                                 </div>
 
-                                                <style>{`@media (min-width: 768px) and (max-width: 1024px) {
-                                                    /* Target iPad Air / Mini / Pro sizes */
-                                                    #services-cta { width: 540px !important; max-width: 540px !important; }
-                                                    #services-img { width: 540px !important; max-width: 540px !important; display: block !important; }
-                                                    /* Nudge image left to align with CTA */
-                                                    #services-img, #services-img img, .services-image img { transform: translateX(-10px) !important; }
-                                                    .services-image { display: flex; justify-content: center; }
-
-                                                    /* Move entire services section right by 2rem on iPads */
-                                                    .services-section { transform: translateX(2rem) !important; }
-
-                                                    /* Slight internal nudges for layout balance */
-                                                    .services-text { transform: translateX(1rem) !important; }
-                                                    .services-image { transform: translateX(1rem) !important; }
-                                                    /* Nudge CTA slightly to the right for fine placement */
-                                                    #services-cta { transform: translateX(0.5rem) !important; }
-
-                                                    /* Move lists right slightly and make separators the same length as the CTA */
-                                                    .services-text ol { transform: translateX(0.7rem) !important; }
-                                                    .services-text ol li hr {
-                                                        width: 540px !important;
-                                                        max-width: 540px !important;
-                                                        margin-left: 0 !important;
-                                                        transform: translateX(calc(-10px + 0.7rem)) !important;
-                                                        margin-top: 12px !important;
-                                                    }
-
-                                                    /* Move LogoMarquee up by 9rem on iPads (Air / Mini / Pro) */
-                                                    .services-marquee {
-                                                        margin-top: 30rem !important;
-                                                        transform: translateY(-20rem) !important;
-                                                    }
-                                                        /* iPad mini (portrait width 768px) only: also shift services section right by 2rem */
-                                                        @media (width: 768px) {
-                                                            .services-section { transform: translateX(2rem) !important; }
-                                                        }
-                                                }`}</style>
                     </div>
                 </div>
             </div>

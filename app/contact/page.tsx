@@ -152,10 +152,10 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Contact Form */}
-            <div className="bg-neutral-900 rounded-lg md:rounded-xl p-6 md:p-8 lg:p-10">
+            <div className="bg-black p-4 md:p-6">
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-12 md:py-16 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center mb-6 md:mb-8">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white flex items-center justify-center mb-6 md:mb-8">
                     <svg className="w-8 h-8 md:w-10 md:h-10 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                       setFormData({ naam: "", email: "", onderwerp: "", bericht: "" });
                       setSubmitAttempted(false);
                     }}
-                    className="bg-white text-neutral-900 font-semibold py-3 md:py-4 px-8 md:px-10 text-base md:text-lg rounded-lg hover:bg-neutral-100 transition-all duration-200 hover:scale-105"
+                    className="bg-white text-neutral-900 font-semibold py-3 md:py-4 px-8 md:px-10 text-base md:text-lg hover:bg-neutral-100 transition-all duration-200 hover:scale-105"
                     style={{
                       fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                     }}
@@ -194,14 +194,14 @@ export default function ContactPage() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-6 md:space-y-8"
+                  className="space-y-6"
                   suppressHydrationWarning
                 >
                   {/* Naam Field */}
                   <div>
                     <label
                       htmlFor="naam"
-                      className="block text-neutral-300 mb-2 text-sm md:text-base font-medium"
+                      className="block text-white mb-2 text-base font-normal"
                       style={{
                         fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                       }}
@@ -214,8 +214,8 @@ export default function ContactPage() {
                       name="naam"
                       value={formData.naam}
                       onChange={handleChange}
-                      className="w-full bg-neutral-900 border-b-2 border-neutral-600 text-white py-3 px-0 focus:outline-none focus:border-white transition-colors text-base md:text-lg placeholder-neutral-500"
-                      placeholder="Uw naam"
+                      className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white text-base placeholder-gray-400"
+                      placeholder=""
                       autoComplete="name"
                     />
                     {submitAttempted && formData.naam.trim() === "" && (
@@ -227,7 +227,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-neutral-300 mb-2 text-sm md:text-base font-medium"
+                      className="block text-white mb-2 text-base font-normal"
                       style={{
                         fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                       }}
@@ -241,8 +241,8 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       onBlur={(e) => setEmailError(validateEmail((e.target as HTMLInputElement).value))}
-                      className="w-full bg-neutral-900 border-b-2 border-neutral-600 text-white py-3 px-0 focus:outline-none focus:border-white transition-colors text-base md:text-lg placeholder-neutral-500"
-                      placeholder="uw@email.nl"
+                      className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white text-base placeholder-gray-400"
+                      placeholder=""
                       autoComplete="email"
                     />
                     {(emailError || (submitAttempted && validateEmail(formData.email))) && (
@@ -254,7 +254,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="onderwerp"
-                      className="block text-neutral-300 mb-2 text-sm md:text-base font-medium"
+                      className="block text-white mb-2 text-base font-normal"
                       style={{
                         fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                       }}
@@ -267,8 +267,8 @@ export default function ContactPage() {
                       name="onderwerp"
                       value={formData.onderwerp}
                       onChange={handleChange}
-                      className="w-full bg-neutral-900 border-b-2 border-neutral-600 text-white py-3 px-0 focus:outline-none focus:border-white transition-colors text-base md:text-lg placeholder-neutral-500"
-                      placeholder="Onderwerp van uw bericht"
+                      className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white text-base placeholder-gray-400"
+                      placeholder=""
                       autoComplete="off"
                     />
                     {submitAttempted && formData.onderwerp.trim() === "" && (
@@ -280,7 +280,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="bericht"
-                      className="block text-neutral-300 mb-2 text-sm md:text-base font-medium"
+                      className="block text-white mb-2 text-base font-normal"
                       style={{
                         fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                       }}
@@ -293,8 +293,8 @@ export default function ContactPage() {
                       value={formData.bericht}
                       onChange={handleChange}
                       rows={6}
-                      className="w-full bg-neutral-900 border-b-2 border-neutral-600 text-white py-3 px-0 focus:outline-none focus:border-white transition-colors resize-none text-base md:text-lg placeholder-neutral-500"
-                      placeholder="Uw bericht..."
+                      className="w-full bg-black border-b border-gray-400 text-white py-2 px-0 focus:outline-none focus:border-white resize-none text-base placeholder-gray-400"
+                      placeholder=""
                     />
                     {submitAttempted && formData.bericht.trim() === "" && (
                       <p className="text-red-400 text-sm mt-2">Vul uw bericht in.</p>
@@ -306,7 +306,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-white text-neutral-900 font-semibold py-4 md:py-5 text-base md:text-lg rounded-lg hover:bg-neutral-100 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]"
+                      className="w-full bg-white text-black font-medium py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{
                         fontFamily: "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial"
                       }}
@@ -394,7 +394,7 @@ function FAQAccordion() {
       {faqs.map((faq, idx) => (
         <div
           key={idx}
-          className="border-2 border-neutral-900 bg-white rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg"
+          className="border-2 border-neutral-900 bg-white overflow-hidden transition-all duration-200 hover:shadow-lg"
         >
           <button
             className="w-full flex justify-between items-center p-4 md:p-6 lg:p-8 text-left focus:outline-none group"

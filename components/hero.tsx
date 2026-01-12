@@ -43,9 +43,9 @@ export default function Hero({ heading, description, imageSrc, imageAlt, imageCl
   };
 
   return (
-    <section className="w-full bg-white pt-[80px] md:pt-[90px] lg:pt-[100px] cursor-default hero--ipad-left">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 hero-inner">
-          <div className="relative md:mb-0 mb-8 w-full md:w-1/2 md:flex-shrink-0 hero-text" style={{ marginLeft: '0px' }}>
+    <section className="w-full bg-white pt-[80px] md:pt-[90px] lg:pt-[100px] cursor-default hero--ipad-left overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-6 hero-inner overflow-visible">
+          <div className="relative md:mb-0 mb-8 w-full md:w-1/2 md:flex-shrink-0 md:flex-grow-0 hero-text z-10" style={{ marginLeft: '0px' }}>
           <h1
             className="text-black text-left text-[32px] md:text-[64px] leading-[40px] md:leading-[72px]"
             style={{
@@ -58,7 +58,7 @@ export default function Hero({ heading, description, imageSrc, imageAlt, imageCl
           </h1>
 
           <p
-            className="w-full md:w-[607px] h-auto md:h-[78px] mt-4 md:mt-3 py-3 md:py-6 text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] font-medium text-black text-left"
+            className="w-full mt-4 md:mt-3 py-3 md:py-6 text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] font-medium text-black text-left"
             style={{
               fontFamily:
                 "Switzer, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
@@ -88,8 +88,8 @@ Goede koffie. Goed geregeld. Geen gedoe.
           </div>
         </div>
 
-        <div className="relative w-full md:w-1/2 md:flex-shrink-0 flex justify-center md:justify-end px-0 md:px-0 hero-image">
-          <div className="relative w-full max-w-none sm:max-w-[420px] md:max-w-[540px] hero-image-wrapper">
+        <div className="relative w-full md:w-1/2 md:flex-shrink-0 md:flex-grow-0 flex justify-center md:justify-end px-0 md:px-0 hero-image z-0">
+          <div className="relative w-full max-w-none sm:max-w-[420px] md:max-w-[540px] hero-image-wrapper overflow-visible">
             <Image
               src={imageSrc ?? "/G005.webp"}
               alt={imageAlt ?? "Koffiekarretje"}
