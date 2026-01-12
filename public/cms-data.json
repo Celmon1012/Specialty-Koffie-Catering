@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "id": "hero",
+      "title": "Specialty Koffie Catering op Locatie",
+      "description": "Laat je gasten genieten van onze barista's die ter plekke de lekkerste espresso's, cappuccino's en lattes bereiden met unieke huisgemaakte smaken.",
+      "features": [
+        { "featureText": "Professionele barista's ter plekke" },
+        { "featureText": "Premium koffiebonen" },
+        { "featureText": "Persoonlijke aandacht" }
+      ],
+      "image": "/37816e257bbb1297c93824f11276397c0a0fd0dc.jpg",
+      "ctaButtonText": "Offerte Aanvragen",
+      "sectionPosition": "hero"
+    },
+    {
+      "id": "second",
+      "title": "De Nieuwe Standaard",
+      "description": "Omdat wij geloven dat koffie meer is dan alleen een drankje. Het is een moment van beleving, gezelligheid en kwaliteit. Met onze mobiele koffiebar brengen wij niet alleen heerlijke koffies, maar ook sfeer en persoonlijke aandacht naar jouw evenement.",
+      "features": [
+        { "featureText": "Kwaliteit boven alles" },
+        { "featureText": "Unieke smaken" },
+        { "featureText": "Volledige service" }
+      ],
+      "image": "/48c9546cc5f89b0b1b590256341dedd37915af07.jpg",
+      "ctaButtonText": "Offerte Aanvragen",
+      "sectionPosition": "second"
+    }
+  ]
+}

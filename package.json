@@ -1,0 +1,37 @@
+{
+  "name": "specialty-koffie-catering",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "postbuild": "next-sitemap",
+    "payload": "node ./payload-server.js",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@payloadcms/db-mongodb": "^3.69.0",
+    "@payloadcms/email-nodemailer": "^3.69.0",
+    "dotenv": "^17.2.3",
+    "mongodb-memory-server": "^10.2.0",
+    "next": "16.0.10",
+    "next-sitemap": "^4.2.3",
+    "nodemailer": "^7.0.6",
+    "payload": "^3.69.0",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.27",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.10",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
+  }
+  
+}
